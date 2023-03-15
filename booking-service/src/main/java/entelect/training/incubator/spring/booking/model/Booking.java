@@ -1,4 +1,4 @@
-package main.java.entelect.training.incubator.spring.booking.model;
+package entelect.training.incubator.spring.booking.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,5 +24,12 @@ public class Booking {
 
     private LocalDateTime booking_date;
 
-    private String reference_number;
+    private String referenceNumber;
+
+    public Booking(Integer customer_id, Integer flight_id, LocalDateTime booking_date, String reference_number) {
+        this.customer_id = customer_id;
+        this.flight_id = flight_id;
+        this.booking_date = booking_date;
+        this.referenceNumber = reference_number;
+    }
 }

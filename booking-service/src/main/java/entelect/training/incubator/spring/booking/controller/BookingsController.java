@@ -1,7 +1,7 @@
-package main.java.entelect.training.incubator.spring.booking.controller;
+package entelect.training.incubator.spring.booking.controller;
 
-import main.java.entelect.training.incubator.spring.booking.model.Booking;
-import main.java.entelect.training.incubator.spring.booking.service.BookingService;
+import entelect.training.incubator.spring.booking.model.Booking;
+import entelect.training.incubator.spring.booking.service.BookingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -23,10 +23,10 @@ public class BookingsController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createCustomer(@RequestBody Booking booking) {
-        LOGGER.info("Processing booking creation request for booking={}", booking);
+    public ResponseEntity<?> createBooking(@RequestParam Integer customerID, @RequestParam Integer flightID) {
+        LOGGER.info("Processing booking creation request for customer={}", customerID);
 
-        final Booking savedBooking = bookingService.createBooking(booking);
+        final Booking savedBooking = bookingService.createBooking(customerID, flightID);
 
         LOGGER.trace("Booking created");
         return new ResponseEntity<>(savedBooking, HttpStatus.CREATED);
